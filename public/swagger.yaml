@@ -1,0 +1,38 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Express on Cloud Functions
+host: us-central1-playground-155904.cloudfunctions.net
+basePath: /api/v1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /users:
+    get:
+      tags:
+        - User
+      summary: Get all users
+      responses:
+        200:
+          description: Success
+  /users/{userId}:
+    get:
+      tags:
+        - User
+      summary: Get user by id
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: integer
+      responses:
+        200:
+          description: Success
+        400:
+          description: Invalid userId
+        404:
+          description: User not found
